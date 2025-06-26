@@ -70,7 +70,7 @@ class UserController extends Controller
             }
             $user= User::where('phone_number', $request->phone_number)->firstOrFail();
             $token=$user->createToken('api')->plainTextToken;
-            return response()->json(['login successfuly']);
+            return response()->json(['login successfuly', 'token'=>$token]);
 
 
           } catch (\Exception $exception) {
